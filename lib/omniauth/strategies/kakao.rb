@@ -26,6 +26,10 @@ module OmniAuth
         {'properties' => raw_properties}
       end
 
+      kakao_account do
+        {'kakao_account' => raw_kakao_account}
+      end
+
       def initialize(app, *args, &block)
         super
         options[:callback_path] = options[:redirect_path] || DEFAULT_REDIRECT_PATH
@@ -64,6 +68,10 @@ module OmniAuth
 
       def raw_properties
         @raw_properties ||= raw_info['properties']
+      end
+
+      def raw_kakao_account
+        @raw_kakao_account ||= raw_info['kakao_account']
       end
     end
   end
